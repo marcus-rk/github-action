@@ -7,6 +7,19 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
+    # event.issue.number # echo '${{ toJson(github) }}' | jq  
     steps:
-      - name: Comment on issue
-        run: echo '${{ toJson(github) }}' | jq
+      - name: Create comment on issue
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown** :sparkles:
+            - Created by [create-or-update-comment][1]
+  
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          reactions: '+1'
+          
+          
+      
