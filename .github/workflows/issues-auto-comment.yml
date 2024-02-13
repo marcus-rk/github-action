@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Comment on issue
-        run: echo '${{ toJson(github) }}'
+        run: echo '${{ toJson(github) }}' | jq
