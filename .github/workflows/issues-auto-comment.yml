@@ -1,0 +1,12 @@
+name: Issue Auto Commenter
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on issue
+        run: echo '${{ toJson(github) }}'
